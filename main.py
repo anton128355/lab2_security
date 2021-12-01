@@ -211,16 +211,14 @@ class Window(QMainWindow, Ui_Lab1_security):
 
             except Exception as exc:
                 print("Exception is: ", exc)
-                print("Autorization failed, login or/and password is incorrect!")
                 sys.exit()
 
             Window.create_directories(self)
             Window.update_paths(self)
 
         else:
-            
+            os.makedirs(f"{wd}/Dir0")
             with open(f"{wd}/Dir0/login-password.json", "w") as file:
-                # if "admin" not in [i[1] for i in dict_password_login.values()]:
                 Window.create_directories(self)
                 login = getpass.getpass("Please, input admin login: ")
                 password = getpass.getpass("Please, input admin password: ")
